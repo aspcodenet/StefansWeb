@@ -1,0 +1,46 @@
+﻿@page
+@model StefansWeb.Pages.ProductsModel
+@{
+    var idag = System.DateTime.Now.ToString("dddd");
+    var dayOfWeek = System.DateTime.Now.DayOfWeek;
+
+// Generera taggar mha IFs - 
+// om det är ebn viss dag 
+// eller inloggad visa  Logout etc etc etc
+// generera taggar från databasrader
+}
+
+
+<h1>Stefans produkter</h1>
+
+<span>
+Hej idag är det @idag och då har vi massa bla bla rabatter
+</span>
+
+@if(dayOfWeek == DayOfWeek.Monday)
+{
+    <h2>Idag är det massa bra saker</h2>
+}
+
+<h2>Produkter</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach(var product in Model.Products){
+        <tr>
+          <th scope="row">@product.ProductID</th>
+          <td>@product.ProductName</td>
+          <td>@product.UnitPrice</td>
+          <td>bla</td>
+        </tr>
+      }
+  </tbody>
+</table>
+
